@@ -25,3 +25,13 @@ jobs:
         echo "Iniciando login"
         docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
         echo "Fin del login"
+    - name: Docker build
+      run: |
+        echo "Iniciando build"
+        docker build -t selvinmedina/graphql-actions:1.0.1 .
+        echo "Fin del build"
+    - name: Docker push
+      run: |
+        echo "Iniciando push"
+        docker push selvinmedina/graphql-actions:1.0.1
+        echo "Fin del push"
